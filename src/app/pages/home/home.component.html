@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<div class="home-content">
+  <!-- Seção de Pesquisa -->
+  <div class="search-center-container">
+    <div class="search-container">
+      <input class="search-box" type="text" placeholder="Pesquise algum tópico ou grupo...">
+      <img class="search-icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/292929/search--v1.png" alt="Ícone de pesquisa" />
+    </div>
+  </div>
+
+  <!-- Seção de Tópicos Recentes -->
+  <div class="topics-container">
+    <h2>Tópicos Recentes</h2>
+    <div class="topics">
+      <app-topic-slider></app-topic-slider>
+    </div>
+  </div>
+
+  <!-- Seção de Grupos Recomendados -->
+  <div class="groups-container">
+    <h2>Grupos Recomendados</h2>
+    <app-recent-groups></app-recent-groups>
+  </div>
+
+  <!-- Seção de Comentários Recomendados -->
+  <div class="topics-container">
+    <h2>Comentários Recomendados</h2>
+    <div class="topics">
+      <app-topic-slider></app-topic-slider>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

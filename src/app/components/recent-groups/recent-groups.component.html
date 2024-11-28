@@ -1,0 +1,11 @@
+<div *ngIf="recentGroups.length > 0" class="recent-groups">
+  <!-- Itera sobre os grupos recentes -->
+  <div *ngFor="let group of recentGroups" class="group-card" (click)="viewGroup(group.id)">
+    <!-- Exibe o ícone do grupo se houver -->
+    <img *ngIf="group.icon" [src]="group.icon" alt="Group Icon" class="group-icon" />
+    <span>{{ group.name }}</span>
+  </div>
+</div>
+
+<!-- Caso não haja grupos -->
+<p *ngIf="recentGroups.length === 0">Não há grupos recentes.</p>

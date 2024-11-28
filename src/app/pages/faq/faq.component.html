@@ -1,0 +1,16 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <div class="faq-container">
+    <h1>Perguntas Frequentes</h1>
+    <div class="faq-item" *ngFor="let faq of faqs">
+      <div class="faq-question" (click)="faq.open = !faq.open">
+        <h3>{{ faq.question }}</h3>
+        <span>{{ faq.open ? '-' : '+' }}</span>
+      </div>
+      <div class="faq-answer" *ngIf="faq.open">
+        <p>{{ faq.answer }}</p>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <app-navbar></app-navbar>
+
+  <div class="login-page-container">
+    <div class="dark-section">
+      <footer class="footer">
+        <p>&copy; 2024 Unifórum | Todos os direitos reservados | Designed by Freepik</p>
+      </footer>
+    </div>
+    <div class="light-section">
+      <div class="login-box">
+        <h2 class="login-title">Login</h2>
+        <form class="login-form" (ngSubmit)="onLogin()">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="Digite seu e-mail" [(ngModel)]="email" name="email" required>
+
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" placeholder="Digite sua senha" [(ngModel)]="password" name="password"
+            required>
+
+          <div class="login-form-button-container">
+            <button class="login-button" type="submit">Entrar</button>
+          </div>
+        </form>
+        <a (click)="redirectToOtherPage('/register')">Não tem uma conta? Cadastre-se</a>
+      </div>
+    </div>
+  </div>
+</div>

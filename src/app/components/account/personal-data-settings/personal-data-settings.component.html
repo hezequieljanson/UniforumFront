@@ -1,0 +1,16 @@
+<div class="center-container">
+  <div class="container">
+      <h2 class="personal-data">Dados Pessoais</h2>
+      <div class="user-info">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" [(ngModel)]="userInfo.name" placeholder="Digite seu nome">
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" [(ngModel)]="userInfo.email" placeholder="Digite seu e-mail">
+
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" [(ngModel)]="userInfo.password" placeholder="Digite sua nova senha">
+      </div>
+      <button class="button-save"  (click)="saveChanges()">Salvar Alterações</button>
+  </div>
+</div>

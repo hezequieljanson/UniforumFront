@@ -1,0 +1,59 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .container {
+      display: flex;
+      padding: 2rem;
+      height: 100%;
+
+      .left-container {
+          width: 35%;
+
+          h2 {
+              text-align: center;
+          }
+
+          .account-settings {
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              margin-top: 1rem;
+
+              .settings-button-container {
+                  display: flex;
+                  width: 100%;
+                  height: 70px;
+                  background-color: #dadada;
+                  border-radius: 20px;
+                  align-items: center;
+                  transition: background-color 0.3s ease, transform 0.2s ease; // Adiciona transições
+                  cursor: pointer; // Altera o cursor ao passar sobre o botão
+
+                  &:hover {
+                      background-color: #b0b0b0; // Cor de fundo ao passar o mouse
+                      transform: scale(1.02); // Leve aumento de tamanho
+                  }
+
+                  .icon-and-text {
+                      display: flex;
+                      margin: 0.5rem;
+                      align-items: center;
+                      gap: 1rem;
+                  }
+              }
+          }
+      }
+
+      .container-divider {
+          width: 2px;
+          background-color: #dadada;
+          margin: 0 2.5rem 0 2.5rem;
+      }
+
+      .right-container {
+          width: 65%;
+      }
+  }
+}

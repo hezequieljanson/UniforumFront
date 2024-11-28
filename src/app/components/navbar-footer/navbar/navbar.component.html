@@ -1,0 +1,35 @@
+<nav class="navbar" [ngClass]="{ 'active': isMenuOpen }">
+  <div class="navbar-logo" (click)="redirectToOtherPage('/')">
+      <img src="https://i.imgur.com/k1WIbgJ.png" alt="Descrição da Imagem" class="navbar-logo-image" />
+      <p><strong>Unifórum</strong></p>
+  </div>
+
+  <div class="navbar-links" [ngClass]="{ 'show': isMenuOpen }">
+      <ul class="navbar-menu">
+          <li class="link" (click)="redirectToOtherPage('/')">Home</li>
+          <li *ngIf="isLoggedIn()" class="link" (click)="redirectToOtherPage('/my-groups')">Meus grupos</li>
+          <li class="link" (click)="redirectToOtherPage('/faq')">Perguntas Frequentes</li>
+      </ul>
+
+      <img class="profile-icon"
+         (click)="isLoggedIn() ? redirectToOtherPage('/account-settings') : null"
+         src="https://img.icons8.com/material-rounded/40/E4F2FE/user-male-circle.png"
+         alt="user-male-circle"/>
+
+      <ng-template #loginButton>
+        <button class="login-btn" (click)="redirectToOtherPage('/login')">
+            <strong>Entrar</strong>
+        </button>
+      </ng-template>
+
+      <button class="login-btn" *ngIf="userName; else loginButton">
+          <strong>{{ userName }}</strong>
+      </button>
+  </div>
+
+  <button class="hamburger" aria-label="Toggle menu" (click)="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+  </button>
+</nav>

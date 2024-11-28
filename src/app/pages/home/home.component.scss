@@ -1,0 +1,126 @@
+// Definindo variáveis para cores
+$navbar-bg: #044CF4;
+$button-bg: #FBA234;
+$button-hover-bg: #e0922d;
+$text-color: white;
+
+.home-content {
+    margin-top: 2rem;
+
+    .search-center-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+
+        .search-container {
+            position: relative;
+            display: flex;
+            width: 40%;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+
+            .search-box {
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+                border: 1px solid #292929;
+                padding-left: 0.5rem;
+                font-family: 'Nunito';
+
+                &:focus {
+                    outline: none;
+                    border-color: #044cf4;
+                }
+          }
+
+            .search-icon {
+                position: absolute;
+                right: 0.5rem;
+                cursor: pointer;
+                transition: all 0.3s ease-out;
+
+                &:hover {
+                    opacity: 0.7;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .topics-container {
+        margin: 1rem 0 2rem 0;
+
+        h2 {
+            margin-left: 1rem;
+        }
+    }
+
+    .groups-container {
+
+        h2 {
+            margin-left: 1rem;
+        }
+
+        .groups {
+            width: 150px;
+            height: 150px;
+            background-color: #dadada;
+            margin: 1rem 0 2rem 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .home-content {
+
+        .search-center-container {
+
+            .search-container {
+                width: 80% !important;
+                height: 50px;
+
+                .search-box {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .home-content {
+
+        .search-center-container {
+
+            .search-container {
+                width: 80% !important;
+                height: 50px;
+
+                .search-box {
+                    font-size: 1.15rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .home-content {
+
+        .search-center-container {
+
+            .search-container {
+                width: 80% !important;
+                height: 50px;
+
+                .search-box {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

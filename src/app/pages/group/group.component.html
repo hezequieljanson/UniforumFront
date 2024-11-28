@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+<div class="group-container">
+  <div class="banner-center-container">
+    <div class="banner-container">
+      <img *ngIf="group?.banner; else defaultBanner" [src]="group.banner" alt="group-banner" class="community-banner">
+      <ng-template #defaultBanner>
+        <img src="https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2021/11/o-que-e-html.jpg" alt="group-banner" class="community-banner">
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="group-info" *ngIf="group">
+    <div class="group-picture-and-info">
+      <div class="group-picture">
+        <img *ngIf="group?.image; else defaultImage" [src]="group.image" alt="group-picture">
+        <ng-template #defaultImage>
+          <img src="https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg" alt="group-picture">
+        </ng-template>
+      </div>
+      <div class="info">
+        <h1>{{ group?.name }}</h1>
+        <p>{{ group?.description || 'Uma breve descrição do grupo aqui.' }}</p>
+      </div>
+    </div>
+
+    <!-- Exibe o botão Criar Tópico somente se o usuário estiver logado -->
+    <button *ngIf="isUserLoggedIn" class="create-topic-button" (click)="openCreateTopicForm()">Criar Tópico</button>
+  </div>
+
+  <!-- Modal de Criação de Tópico -->
+  <app-create-topic-form *ngIf="isCreateTopicFormVisible"
+                         (createTopicEvent)="onCreateTopic($event)"
+                         (closeModalEvent)="onCloseModal()">
+  </app-create-topic-form>
+
+  <div class="topics-container" *ngIf="!isLoading">
+    <div class="left">
+
+      <!-- Exibir tópicos ou mensagem de erro se não houver -->
+      <ng-container *ngIf="group?.topics?.length > 0; else noTopicsMessage">
+        <app-topic-card *ngFor="let topic of group?.topics" [topic]="topic"></app-topic-card>
+      </ng-container>
+
+      <!-- Mensagem caso não haja tópicos -->
+      <ng-template #noTopicsMessage>
+        <p>Este grupo ainda não tem tópicos criados.</p>
+      </ng-template>
+
+      <!-- Exibir mensagem de erro se houver -->
+      <ng-container *ngIf="errorMessage">
+        <p class="error-message">{{ errorMessage }}</p>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Exibir carregando se necessário -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <p>Carregando...</p>
+  </div>
+</div>

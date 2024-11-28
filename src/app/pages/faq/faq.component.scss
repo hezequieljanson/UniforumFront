@@ -1,0 +1,37 @@
+.faq-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  min-height: calc(100vh - 80px); /* Ajuste para garantir que o footer fique no final da página */
+}
+
+h1 {
+  text-align: center;
+  color: #044CF4;
+  margin-bottom: 2rem;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  border: 1px solid #dadada;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    cursor: pointer;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .faq-answer {
+    padding: 1rem;
+    background-color: #fff;
+  }
+}

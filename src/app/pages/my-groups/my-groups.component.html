@@ -1,0 +1,26 @@
+<div class="page-container">
+  <app-navbar></app-navbar>
+  <div class="container">
+      <h2>Grupos Criados</h2>
+
+      <!-- Verifica se o usuário tem grupos criados -->
+      <div *ngIf="createdGroups.length === 0" class="no-groups-message">
+          <p>Você ainda não tem grupos criados. Clique no botão abaixo para criar um grupo.</p>
+      </div>
+
+      <div *ngIf="createdGroups.length > 0" class="created-groups">
+          <!-- Itera sobre os grupos criados -->
+          <div *ngFor="let group of createdGroups" class="group-card">
+              <!-- Exibe o ícone do grupo -->
+              <img *ngIf="group.icon" [src]="group.icon" alt="Group Icon" class="group-icon" />
+              <span>{{ group.name }}</span>
+          </div>
+      </div>
+
+      <!-- Botão para criar um novo grupo -->
+      <div class="button-container">
+          <button class="create-group-btn" type="button" (click)="redirectToCreateGroup()">Criar um grupo</button>
+      </div>
+  </div>
+  <app-footer></app-footer>
+</div>

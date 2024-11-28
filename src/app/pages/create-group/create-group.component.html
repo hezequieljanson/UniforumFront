@@ -1,0 +1,45 @@
+<div class="page-container">
+  <app-navbar></app-navbar>
+  <div class="container">
+    <h2>Criar Grupo</h2>
+    <form (ngSubmit)="createGroup()" #groupForm="ngForm">
+      <label for="groupName">Nome do Grupo</label>
+      <input
+        type="text"
+        id="groupName"
+        [(ngModel)]="groupName"
+        name="groupName"
+        required
+        placeholder="Digite o nome do grupo"
+        #groupNameInput="ngModel"
+      />
+      <!-- Mensagem de erro se o nome do grupo estiver vazio -->
+      <div *ngIf="groupNameInput.invalid && groupNameInput.touched" class="error-message">
+        O nome do grupo é obrigatório.
+      </div>
+
+      <label for="groupDescription">Descrição do Grupo</label>
+      <textarea
+        id="groupDescription"
+        [(ngModel)]="groupDescription"
+        name="groupDescription"
+        required
+        placeholder="Digite a descrição do grupo"
+        #groupDescriptionInput="ngModel"
+      ></textarea>
+      <!-- Mensagem de erro se a descrição do grupo estiver vazia -->
+      <div *ngIf="groupDescriptionInput.invalid && groupDescriptionInput.touched" class="error-message">
+        A descrição do grupo é obrigatória.
+      </div>
+
+      <div class="button-container">
+        <!-- Botão de envio só habilitado se o formulário for válido -->
+        <button type="submit" class="create-group-btn" [disabled]="groupForm.invalid">
+          Criar Grupo
+        </button>
+        <button type="button" (click)="cancel()" class="cancel-btn">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>

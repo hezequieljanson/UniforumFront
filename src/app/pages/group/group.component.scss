@@ -1,0 +1,156 @@
+$navbar-bg: #044CF4;
+$button-bg: #FBA234;
+$button-hover-bg: #e0922d;
+$text-color: white;
+
+.group-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0 2rem 2rem;  /* Adiciona margem de segurança nas laterais e embaixo */
+  box-sizing: border-box; /* Garante que o padding não ultrapasse a largura total */
+
+  .banner-center-container {
+    width: 100%; /* Corrigido para 100% da largura */
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .banner-container {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 20px;
+
+      .community-banner {
+        width: 100%;
+        height: 100%; /* Garantir que cubra todo o container */
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .group-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo na tela */
+    justify-content: center;
+    width: 100%;
+    margin-top: -50px;
+    z-index: 0;
+    text-align: center;
+    gap: 1rem;
+
+    .group-picture-and-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centraliza os elementos verticalmente */
+      gap: 1rem;
+
+      .group-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 10px solid #E4F2FE;
+        overflow: hidden;
+        background-color: #dadada;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .info {
+        text-align: center;
+
+        h1 {
+          font-size: 2rem; /* Aumenta o tamanho do título */
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #666;
+        }
+      }
+    }
+
+    .join-button,
+    .create-topic-button {
+      background-color: $button-bg;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease-out;
+
+      &:hover {
+        background-color: $button-hover-bg;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.topics-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens se ajustem para a próxima linha */
+  justify-content: center; /* Centraliza os cards de tópicos */
+  margin: 2rem 0 0 1rem;
+  gap: 1.5rem; /* Espaçamento entre os tópicos */
+  padding: 0 2rem 2rem;  /* Adiciona margem de segurança nas laterais e embaixo */
+  box-sizing: border-box; /* Garante que o padding não ultrapasse a largura total */
+
+  /* Container da parte esquerda */
+  .left {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os tópicos se ajustem conforme a tela */
+    gap: 1.5rem; /* Espaço entre os tópicos */
+    width: 100%; /* Garante que os tópicos ocupem toda a largura disponível */
+    justify-content: center; /* Centraliza os tópicos */
+  }
+
+  /* Para cada card de tópico */
+  .left .left-topics .topic-card {
+    width: calc(50% - 1.5rem); /* 50% da largura para dois itens por linha */
+    box-sizing: border-box; /* Garantir que o espaçamento entre os cards não altere o layout */
+  }
+
+  /* Sidebar à direita */
+  .right {
+    position: sticky;
+    top: 20px;
+    width: 30%; /* Define uma largura fixa para a sidebar */
+    height: 90vh;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 3rem 1rem 0 0;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+    .right-card {
+      h2 {
+        margin-top: 0;
+      }
+    }
+  }
+
+  /* Media Queries para telas pequenas (dispositivos móveis): exibir 1 tópico por vez */
+  @media (max-width: 768px) {
+    .left .left-topics .topic-card {
+      width: 100%; /* 1 card por linha */
+    }
+
+    .right {
+      width: 100%; /* A sidebar ocupa 100% da largura em telas pequenas */
+      margin-top: 2rem; /* Adiciona um espaço entre os tópicos e a sidebar */
+    }
+  }
+}

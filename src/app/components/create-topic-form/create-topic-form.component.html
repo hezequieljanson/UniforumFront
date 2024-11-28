@@ -1,0 +1,19 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Criar Tópico</h2>
+    <form #topicForm="ngForm" (ngSubmit)="createTopic(topicForm)">
+      <div class="form-group">
+        <label for="topicTitle">Título</label>
+        <input id="topicTitle" name="title" [(ngModel)]="newTopic.title" placeholder="Título do Tópico" required />
+      </div>
+      <div class="form-group">
+        <label for="topicContent">Conteúdo</label>
+        <textarea id="topicContent" name="content" [(ngModel)]="newTopic.content" placeholder="Conteúdo do Tópico" required></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="create-button">Criar Tópico</button>
+        <button type="button" class="cancel-button" (click)="closeModal()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

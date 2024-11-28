@@ -1,0 +1,14 @@
+<div class="container" (click)="redirectToOtherPage('/topic')">
+  <div class="user-and-description-container">
+    <!-- Informações do usuário -->
+    <div class="user-info">
+      <p class="title">{{ topic?.title }}</p>
+      <p class="user-name">{{ userName || 'Carregando nome...' }}</p>  <!-- Exibe o nome do usuário -->
+    </div>
+
+    <!-- Descrição do tópico -->
+    <div class="description-container">
+      <p class="description">{{ topic?.content }}</p>
+    </div>
+  </div>
+</div>

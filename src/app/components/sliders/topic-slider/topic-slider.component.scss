@@ -1,0 +1,111 @@
+.carousel-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    .carousel-button-area-left {
+        display: flex;
+        width: 80px;
+        height: 300px;
+        position: absolute; /* Mover para absolute */
+        left: 0; /* Colocar à esquerda */
+        z-index: 2; /* Aumentar o z-index para estar acima dos cards */
+        cursor: pointer; /* Indica que a área é clicável */
+        background-color: transparent;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Para ocultar o conteúdo que excede */
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Largura do degradê */
+            height: 100%; /* Altura do degradê */
+            background: linear-gradient(90deg, rgba(4, 76, 244, 1), rgba(4, 76, 244, 0));
+            transform: scaleX(0); /* Começa com largura 0 */
+            transform-origin: left; /* Origem da transformação à esquerda */
+            transition: transform 0.3s ease; /* Suavização da transição */
+        }
+    
+        &:hover::before {
+            transform: scaleX(1); /* Aumenta para preencher a div */
+        }
+    }  
+
+    .carousel-button-area-right {
+        display: flex;
+        width: 80px;
+        height: 300px;
+        position: absolute; /* Mover para absolute */
+        right: 0; /* Colocar à direita */
+        z-index: 2; /* Aumentar o z-index para estar acima dos cards */
+        cursor: pointer; /* Indica que a área é clicável */
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Para ocultar o conteúdo que excede */
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Largura do degradê */
+            height: 100%; /* Altura do degradê */
+            background: linear-gradient(90deg, rgba(4, 76, 244, 0), rgba(4, 76, 244, 1));
+            transform: scaleX(0); /* Começa com largura 0 */
+            transform-origin: right; /* Origem da transformação à direita */
+            transition: transform 0.3s ease; /* Suavização da transição */
+        }
+    
+        &:hover::before {
+            transform: scaleX(1); /* Aumenta para preencher a div */
+        }
+    }    
+  
+    .carousel-button {
+        background-color: transparent;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 1;
+        user-select: none;
+    
+        &.left {
+            position: absolute;
+            transform: rotate(180deg);
+            left: 10px;
+        }
+    
+        &.right {
+            position: absolute;
+            right: 10px;
+        }
+    }
+  
+    .carousel-content {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 1rem 4rem 1rem 4rem;
+        
+        /* Ocultar a barra de rolagem */
+        &::-webkit-scrollbar {
+            display: none; /* Para navegadores WebKit (Chrome, Safari) */
+        }
+        
+        & {
+            -ms-overflow-style: none; /* Para Internet Explorer e Edge */
+            scrollbar-width: none; /* Para Firefox */
+        }
+
+        .carousel-item {
+            display: flex;
+            height: 300px;
+            gap: 1rem;
+        }
+    }
+}

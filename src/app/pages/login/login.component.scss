@@ -1,0 +1,128 @@
+$navbar-bg: #044CF4;
+$button-bg: #FBA234;
+$button-hover-bg: #e0922d;
+$text-color: white;
+
+.container {
+    display: flex;
+    flex-direction: column; /* Alinha os itens na coluna */
+    height: 100vh; /* Altura total da tela */
+    overflow: hidden; /* Garante que não haverá rolagem */
+
+    .login-page-container {
+        display: flex;
+        height: 100%; /* Usa a altura total da tela */
+    
+        .dark-section {
+            width: 50%; /* 50% da tela */
+            height: 100%; /* Altura total da tela */
+            position: relative; /* Para o trapézio ser posicionado corretamente */
+            clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%); /* Trapézio retângulo inclinado à direita */
+            background-image: url('https://img.freepik.com/fotos-gratis/jovem-ajudando-sua-amiga-durante-a-sessao-de-estudo_23-2149265684.jpg?t=st=1730061439~exp=1730065039~hmac=84565f79f0d9006903489e14b54e8e0b3e5f419637520b8bc2f99b75bb5d6fce&w=900'); /* Adicione o caminho da sua imagem aqui */
+            background-size: cover; /* Faz a imagem cobrir toda a div */
+            background-position: center; /* Centraliza a imagem na div */
+
+            &::before {
+                content: ""; /* Necessário para criar o pseudo-elemento */
+                position: absolute; /* Posiciona o pseudo-elemento em relação à div pai */
+                top: 0; /* Alinha ao topo */
+                left: 0; /* Alinha à esquerda */
+                width: 100%; /* Ocupa 100% da largura da div */
+                height: 100%; /* Ocupa 100% da altura da div */
+                background-color: rgba(4, 76, 244, 0.5); /* Cor azul com opacidade */
+                z-index: 1; /* Fica acima da imagem */
+            }
+
+            .footer {
+                background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para um efeito discreto */
+                color: #fff; /* Cor do texto */
+                text-align: left; /* Alinha o texto à esquerda */
+                padding: 0.5rem; /* Espaçamento interno */
+                position: absolute; /* Posiciona o footer em relação à dark-section */
+                bottom: 0; /* Alinha ao fundo */
+                left: 0; /* Alinha à esquerda */
+                width: 100%; /* Largura total da dark-section */
+                z-index: 2; /* Fica acima da imagem */
+                font-size: 0.8rem; /* Tamanho do texto menor para discreção */
+            }
+        }
+    
+        .light-section {
+            display: flex;
+            width: 50%; /* 50% da tela */
+            height: 100%; /* Altura total da tela */
+            justify-content: center;
+            align-items: center;
+            position: relative;
+    
+            .login-box {
+                background-color: #fff;
+                border-radius: 12px;
+                width: 300px;
+                height: auto;
+                padding: 3rem;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px, rgba(4, 76, 244, 0.4) 5px 5px, rgba(4, 76, 244, 0.3) 10px 10px, rgba(4, 76, 244, 0.2) 15px 15px, rgba(4, 76, 244, 0.1) 20px 20px, rgba(4, 76, 244, 0.05) 25px 25px;
+                position: absolute; /* Posiciona a caixa de login no centro */
+                align-items: center;
+            
+                .login-title {
+                    font-size: 1.5rem;
+                    margin-bottom: 3rem;
+                    text-align: center;
+                }
+            
+                .login-form {
+                    display: flex;
+                    flex-direction: column;
+                
+                    label {
+                        margin-bottom: 0.5rem;
+                        font-size: 1rem;
+                    }
+                
+                    input {
+                        height: 30px;
+                        padding: 0.5rem;
+                        margin-bottom: 1rem;
+                        border: 1px solid #000;
+                        border-radius: 20px;
+                        font-family: 'Nunito';
+                    }
+                
+                    .login-form-button-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                
+                        .login-button {
+                            margin: 1rem 0 2rem 0;
+                            width: 50%;
+                            height: 40px;
+                            background-color: $button-bg;
+                            color: #fff;
+                            border: none;
+                            padding: 0.5rem;
+                            border-radius: 20px;
+                            cursor: pointer;
+                            font-family: 'Nunito';
+                            font-size: 1rem;
+                            font-weight: bold;
+                    
+                            &:hover {
+                                background-color: $button-hover-bg;
+                            }
+                        }
+                    }
+                }
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    text-decoration: underline;
+                    color: #757575;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+$primary-blue: #044CF4;
+$light-gray: #e0e0e0;
+$text-color: #333333;
+$description-color: #555555;
+
+.topic {
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: rgba(4, 76, 244, 0.3) 0px 4px 8px 0px, rgba(4, 76, 244, 0.5) 0px 4px 20px 0px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+
+    .topic-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        .author-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid $primary-blue;
+        }
+
+        .author-name {
+            font-size: 1.5rem;
+            color: $primary-blue;
+        }
+    }
+
+    .topic-content {
+        margin-bottom: 1rem;
+
+        .title {
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            color: $description-color;
+        }
+    }
+
+    .topic-images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+
+        .images {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+        }
+    }
+}

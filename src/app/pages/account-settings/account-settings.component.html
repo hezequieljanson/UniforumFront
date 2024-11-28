@@ -1,0 +1,45 @@
+<div class="page-container">
+  <app-navbar></app-navbar>
+
+  <div class="container">
+      <div class="left-container">
+          <h2>Configurações da Conta</h2>
+          <div class="account-settings">
+              <!-- <div class="settings-button-container">
+                  <div class="icon-and-text" (click)="selectSection('profile')">
+                      <img width="40" height="40" src="https://img.icons8.com/material-rounded/40/user-male-circle.png" alt="profile"/>
+                      <h3>Perfil</h3>
+                  </div>
+              </div> -->
+
+              <div class="settings-button-container">
+                  <div class="icon-and-text" (click)="selectSection('personalData')">
+                      <img width="40" height="40" src="https://img.icons8.com/material-rounded/40/security-pass.png" alt="personal-data"/>
+                      <h3>Dados pessoais</h3>
+                  </div>
+              </div>
+
+              <div class="settings-button-container">
+                  <div class="icon-and-text" (click)="selectSection('general')">
+                      <img width="40" height="40" src="https://img.icons8.com/material-rounded/40/settings.png" alt="settings"/>
+                      <h3>Configurações</h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="container-divider"></div>
+
+      <div class="right-container">
+          <!-- <div *ngIf="selectedSection === 'profile'">
+              <app-profile-settings></app-profile-settings>
+          </div> -->
+          <div *ngIf="selectedSection === 'personalData'">
+              <app-personal-data-settings></app-personal-data-settings>
+          </div>
+          <div *ngIf="selectedSection === 'general'">
+              <app-general-settings></app-general-settings>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="carousel-container">
+  <div class="carousel-button-area-left" (click)="scrollLeft()">
+    <button class="carousel-button left">
+      <img width="50" height="50" src="https://img.icons8.com/metro/50/044CF4/forward.png" alt="forward"/>
+    </button>
+  </div>
+
+  <div class="carousel-content" #carousel>
+    <div class="carousel-item">
+      <app-topic-card *ngFor="let topic of recentTopics" [topic]="topic"></app-topic-card>
+    </div>
+  </div>
+
+  <div class="carousel-button-area-right" (click)="scrollRight()">
+    <button class="carousel-button right">
+      <img width="50" height="50" src="https://img.icons8.com/metro/50/044CF4/forward.png" alt="forward"/>
+    </button>
+  </div>
+</div>
