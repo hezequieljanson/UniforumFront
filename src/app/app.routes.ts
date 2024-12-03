@@ -26,4 +26,5 @@ export const routes: Routes = [
   { path: 'create-group', component: CreateGroupComponent },
   { path: 'group/:id', component: TopicContainerComponent },
   { path: 'faq', component: FaqComponent },
+  { path: 'topic/:id', component: TopicComponent },
 ];

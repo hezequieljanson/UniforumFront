@@ -23,7 +23,6 @@ export class MyGroupsComponent implements OnInit {
 
   // Método para carregar os grupos criados pelo usuário
   loadCreatedGroups(): void {
-    // Assumindo que você tem um método no GroupService que retorna os grupos do usuário
     this.groupService.getCreatedGroups().subscribe(
       (data) => {
         this.createdGroups = data;  // Atualiza o array com os dados dos grupos criados
@@ -32,6 +31,11 @@ export class MyGroupsComponent implements OnInit {
         console.error('Erro ao carregar os grupos criados:', error);
       }
     );
+  }
+
+  // Método para visualizar um grupo ao clicar nele
+  viewGroup(groupId: number): void {
+    this.router.navigate([`/group/${groupId}`]);
   }
 
   // Redireciona para a página de criação de grupo

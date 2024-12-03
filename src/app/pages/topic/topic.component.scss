@@ -1,52 +1,102 @@
 .container {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap; // Permite que a container se ajuste em telas menores
+
+  .left-container {
+    width: 70%;
+    height: 100%;
+    flex: 1;
+
+    .topic {
+      margin-bottom: 2rem;
+    }
+
+    .add-comment {
+      display: flex;
+      flex-direction: column; // Alinha os elementos verticalmente
+      height: auto;
+      border: 2px solid #333333;
+      border-radius: 20px;
+      padding: 1rem;
+      background-color: #f9f9f9; // Cor de fundo suave para a área de comentário
+      margin-top: 2rem;
+
+      .comment {
+        width: 100%;
+        height: 100px; // Ajustei para altura mais razoável
+        border: none;
+        background-color: transparent;
+        font-family: 'Nunito', sans-serif;
+        font-size: 1rem;
+        outline: none;
+        resize: none;
+        padding: 0.5rem; // Espaço interno para o texto
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Adiciona sombra sutil
+      }
+
+      button {
+        margin-top: 1rem;
+        padding: 0.8rem;
+        background-color: #044CF4;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #033ac2; // Hover mais escuro
+        }
+      }
+
+      .error-message {
+        color: #ff4d4d;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .right-container {
+    width: 30%;
+    height: 100%;
+    text-align: center;
+
+    .recent-topics-box {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      box-shadow: rgba(4, 76, 244, 0.3) 0px 4px 8px 0px, rgba(4, 76, 244, 0.5) 0px 4px 20px 0px;
+      min-height: 372px;
+      border-radius: 20px;
+      padding: 1rem;
+    }
+  }
+
+  h1 {
+    color: #044CF4;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  // Media query para esconder o right-container (tópicos recentes) em telas menores que 768px
+  @media (max-width: 768px) {
+    .right-container {
+      display: none; // Esconde a coluna de tópicos recentes em dispositivos móveis
+    }
+
+    .container {
+      gap: 1rem; // Reduz o espaço entre as colunas em telas pequenas
+    }
 
     .left-container {
-        width: 70%;
-        height: 100%;
-
-        .topic {
-            margin-bottom: 2rem;
-        }
-
-        .add-comment {
-            display: flex;
-            height: 300px;
-            border: 2px solid #333333;
-            border-radius: 20px;
-            padding: 1rem;
-
-            .comment {
-                width: 100%;
-                height: 100%;
-                border: none;
-                background-color: transparent;
-                font-family: 'Nunito';
-                font-size: 1rem;
-                outline: none;
-                resize: none;
-            }
-        }
+      width: 100%; // Faz com que o left-container ocupe toda a largura da tela em dispositivos móveis
     }
-
-    .right-container {
-        width: 30%;
-        height: 100%;
-        text-align: center;
-
-        .recent-topics-box {
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff;
-            box-shadow: rgba(4, 76, 244, 0.3) 0px 4px 8px 0px, rgba(4, 76, 244, 0.5) 0px 4px 20px 0px;
-            min-height: 372px;
-            border-radius: 20px;
-        }
-    }
-
-    h1 {
-        color: #044CF4 !important;
-    }
+  }
 }

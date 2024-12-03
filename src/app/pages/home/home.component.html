@@ -4,9 +4,34 @@
   <!-- Seção de Pesquisa -->
   <div class="search-center-container">
     <div class="search-container">
-      <input class="search-box" type="text" placeholder="Pesquise algum tópico ou grupo...">
-      <img class="search-icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/292929/search--v1.png" alt="Ícone de pesquisa" />
+      <input class="search-box" type="text" [(ngModel)]="query" placeholder="Pesquise algum tópico ou grupo..."
+        (input)="onSearch()">
+      <img class="search-icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/292929/search--v1.png"
+        alt="Ícone de pesquisa" (click)="onSearch()">
     </div>
+  </div>
+
+  <!-- Exibição de Resultados -->
+  <div *ngIf="searchResults.topics?.length > 0" class="topics-container">
+    <h2>Tópicos Encontrados</h2>
+    <ul>
+      <li *ngFor="let topic of searchResults.topics">
+        <h3>{{ topic.title }}</h3>
+        <p>{{ topic.content }}</p>
+        <small>Postado por: {{ topic.userName }} em {{ topic.createdAt | date }}</small>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="searchResults.groups?.length > 0" class="groups-container">
+    <h2>Grupos Encontrados</h2>
+    <ul>
+      <li *ngFor="let group of searchResults.groups">
+        <h3>{{ group.name }}</h3>
+        <p>{{ group.description }}</p>
+        <small>Criado em: {{ group.createdAt | date }}</small>
+      </li>
+    </ul>
   </div>
 
   <!-- Seção de Tópicos Recentes -->
@@ -23,13 +48,5 @@
     <app-recent-groups></app-recent-groups>
   </div>
 
-  <!-- Seção de Comentários Recomendados -->
-  <div class="topics-container">
-    <h2>Comentários Recomendados</h2>
-    <div class="topics">
-      <app-topic-slider></app-topic-slider>
-    </div>
-  </div>
+  <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>

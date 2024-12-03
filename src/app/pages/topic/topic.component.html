@@ -1,25 +1,27 @@
 <app-navbar></app-navbar>
+
 <div class="container">
-    <div class="left-container">
-        <h1>Tópico</h1>
-        <div class="topic">
-            <app-topic-container></app-topic-container>
-        </div>
+  <div class="left-container">
+    <h1>Tópico</h1>
 
-        <h1>Comentários</h1>
-        <div class="comments">
-            <app-comment-container></app-comment-container>
-        </div>
-        <div class="add-comment">
-            <textarea class="comment" placeholder="Adicione um comentário..."></textarea>
-        </div>
-
+    <!-- Exibe o tópico utilizando o app-topic-card -->
+    <div class="topic">
+      <app-topic-card *ngIf="topic" [topic]="topic"></app-topic-card>
     </div>
 
-    <div class="right-container">
-        <h1>Tópicos recentes</h1>
-        <div class="recent-topics-box">
+    <h1>Comentários</h1>
 
-        </div>
+    <!-- Exibe os comentários do tópico -->
+    <div class="comments">
+      <app-comment-container [comments]="comments"></app-comment-container>
     </div>
+
+    <!-- Campo de adicionar comentário, exibido somente se o usuário estiver logado -->
+    <div class="add-comment">
+      <textarea *ngIf="isLoggedIn" class="comment" placeholder="Adicione um comentário..." [(ngModel)]="newCommentContent"></textarea>
+      <button *ngIf="isLoggedIn" (click)="createComment()">Comentar</button>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </div>
+  </div>
+
 </div>

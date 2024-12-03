@@ -37,7 +37,8 @@ export class TopicCardComponent implements OnInit {
     );
   }
 
-  redirectToOtherPage(path: string) {
-    this.router.navigate([path]);
+  // Método para redirecionar para a página de detalhes do tópico
+  redirectToTopicPage(topicId: number): void {
+    this.router.navigate([`/topic/${topicId}`]);  // Redireciona para a página do tópico com o id
   }
 }

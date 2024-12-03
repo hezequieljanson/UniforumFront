@@ -8,9 +8,9 @@
           <p>Você ainda não tem grupos criados. Clique no botão abaixo para criar um grupo.</p>
       </div>
 
-      <div *ngIf="createdGroups.length > 0" class="created-groups">
+      <div *ngIf="createdGroups.length > 0" class="created-groups" >
           <!-- Itera sobre os grupos criados -->
-          <div *ngFor="let group of createdGroups" class="group-card">
+          <div *ngFor="let group of createdGroups" class="group-card" (click)="viewGroup(group.id)">
               <!-- Exibe o ícone do grupo -->
               <img *ngIf="group.icon" [src]="group.icon" alt="Group Icon" class="group-icon" />
               <span>{{ group.name }}</span>
